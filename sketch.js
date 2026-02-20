@@ -1,90 +1,73 @@
-Skip to Play Sketch
-File
-Edit
-Sketch
-Help
-English
-Log in
-or
-Sign up
+const simsapaCore = [
+  {
+    truth: "Suffering exists", 
+    detail: "The simple fact of unsatisfactoriness.",
+    color: "#666666" 
+  },
+  {
+    truth: "The cause is clinging", 
+    detail: "The internal reaction that creates burden.",
+    color: "#4F634F" 
+  },
+  {
+    truth: "The Total Extinction", 
+    detail: "The state where the fire goes out.",
+    color: "#84947C" 
+  },
+  {
+    truth: "The Path is the practice", 
+    detail: "The practical way of living (The Middle Way).",
+    color: "#3D523D" 
+  }
+];
 
-
-
-Auto-refresh
-
-Cultivate frigate
-p5.js 1.11.11
-
-
-sketch.js
-38
-    
-39
-    // Leaf Shape
-40
-    fill(item.color);
-41
-    noStroke();
-42
-    beginShape();
-43
-    vertex(50, y);
-44
-    bezierVertex(70, y-20, 90, y-20, 110, y);
-45
-    bezierVertex(90, y+20, 70, y+20, 50, y);
-46
-    endShape(CLOSE);
-47
-​
-48
-    // Modern Text Access
-49
-    textAlign(LEFT, CENTER);
-50
-    textFont('Georgia'); 
-51
-    
-52
-    // Header Text (White/Off-white for Dark Mode)
-53
-    fill(220);
-54
-    textSize(22);
-55
-    textStyle(BOLD);
-56
-    text(item.truth, 140, y - 10);
-57
-    
-58
-    // Detail Text (Light Grey)
-59
-    fill(160);
-60
-    textSize(14);
-61
-    textStyle(NORMAL);
-62
-    text(item.detail, 140, y + 15);
-63
-    
-64
-    // Subtle Divider
-65
-    stroke(40);
-66
-    line(50, y + (spacing/2), width - 50, y + (spacing/2));
-67
-  });
-68
+function setup() {
+  // ปรับให้ใช้พื้นที่เต็มหน้าจอ Browser
+  createCanvas(windowWidth, windowHeight);
+  noLoop();
 }
-There are no lint messages
-Current lineline 68
 
-Console
-Clear
+function windowResized() {
+  // ถ้าคนดูย่อขยายหน้าจอ ให้วาดใหม่ให้พอดี
+  resizeCanvas(windowWidth, windowHeight);
+  draw();
+}
 
-​
-Preview
+function draw() {
+  background(18, 18, 18); 
+  
+  let margin = 80;
+  // คำนวณระยะห่างให้พอดีกับความสูงหน้าจอ
+  let spacing = (height - (margin * 2)) / 5;
 
+  simsapaCore.forEach((item, i) => {
+    let y = margin + (i * spacing);
+    let xBase = 50;
+    
+    // Leaf Shape
+    fill(item.color);
+    noStroke();
+    beginShape();
+    vertex(xBase, y);
+    bezierVertex(xBase + 20, y - 20, xBase + 40, y - 20, xBase + 60, y);
+    bezierVertex(xBase + 40, y + 20, xBase + 20, y + 20, xBase, y);
+    endShape(CLOSE);
+
+    // Text Content
+    textAlign(LEFT, CENTER);
+    textFont('Georgia'); 
+    
+    fill(220);
+    textSize(22);
+    textStyle(BOLD);
+    text(item.truth, xBase + 90, y - 12);
+    
+    fill(160);
+    textSize(14);
+    textStyle(NORMAL);
+    text(item.detail, xBase + 90, y + 15);
+    
+    stroke(40);
+    line(xBase, y + (spacing/2), width - xBase, y + (spacing/2));
+  });
+}
