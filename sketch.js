@@ -1,17 +1,3 @@
-function draw() {
-  background(18, 18, 18); // บรรทัดเดิมที่มีอยู่แล้ว
-
-  // --- วางส่วนนี้เพิ่มลงไปครับ ---
-  textAlign(CENTER, TOP); 
-  fill(100); 
-  textSize(16);
-  textStyle(NORMAL);
-  text("SĪSAPĀSUTTA", width/2, 20); 
-  // --------------------------
-
-  let margin = 80; // บรรทัดเดิมที่ตามมา...
-  // ...โค้ดส่วนที่เหลือ...
-}
 const simsapaCore = [
   {
     truth: "Suffering exists", 
@@ -49,7 +35,11 @@ function windowResized() {
 
 function draw() {
   background(18, 18, 18); 
-  
+  textAlign(CENTER, TOP); 
+  fill(100); 
+  textSize(16);
+  textStyle(NORMAL);
+  text("SĪSAPĀSUTTA", width/2, 20);
   let margin = 80;
   // คำนวณระยะห่างให้พอดีกับความสูงหน้าจอ
   let spacing = (height - (margin * 2)) / 5;
