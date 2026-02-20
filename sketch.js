@@ -35,20 +35,23 @@ function windowResized() {
 
 function draw() {
   background(18, 18, 18); 
+
+  // --- ชื่อหัวใจพระสูตร: ภาษาอังกฤษล้วน ตัวหนาและใหญ่เด่น ---
   textAlign(CENTER, TOP); 
-  fill(100); 
-  textSize(16);
-  textStyle(NORMAL);
-  text("SĪSAPĀSUTTA", width/2, 20);
-  let margin = 80;
-  // คำนวณระยะห่างให้พอดีกับความสูงหน้าจอ
-  let spacing = (height - (margin * 2)) / 5;
+  fill(255); // สีขาวสว่าง
+  textSize(34); // ขนาดใหญ่พิเศษ
+  textStyle(BOLD);
+  textFont('Georgia'); 
+  text("The Discourse on the Handful of Leaves", width/2, 40); 
+
+  // ปรับระยะบรรทัด (Margin) ลงมาเพื่อให้สมดุลกับหัวข้อที่ใหญ่ขึ้น
+  let margin = 140; 
+  let spacing = (height - (margin * 1.5)) / 4;
 
   simsapaCore.forEach((item, i) => {
     let y = margin + (i * spacing);
     let xBase = 50;
     
-    // Leaf Shape
     fill(item.color);
     noStroke();
     beginShape();
@@ -57,10 +60,7 @@ function draw() {
     bezierVertex(xBase + 40, y + 20, xBase + 20, y + 20, xBase, y);
     endShape(CLOSE);
 
-    // Text Content
     textAlign(LEFT, CENTER);
-    textFont('Georgia'); 
-    
     fill(220);
     textSize(22);
     textStyle(BOLD);
