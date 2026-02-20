@@ -1,4 +1,4 @@
-# 🌿 Sīsapāsutta (Leaves in the Hand)
+# 🌿 The Discourse on Leaves in the Hand
 **"Simsapa Sutta: Direct Knowledge for the Cessation of Suffering"**
 
 A minimalistic digital representation of the **Simsapa Sutta**, focusing on the essential core of Early Buddhist teachings.
